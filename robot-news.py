@@ -1,3 +1,4 @@
+from unicodedata import category
 import canaltech
 import instagram
 import canva
@@ -25,13 +26,14 @@ email = os.getenv('email')
 password = os.getenv('password')
 name_account = os.getenv('name_account')
 driver = getDriver()
+category = 'seguranca'
 
 ########################################################
 
-canaltech.showRecentArticles(driver, 'seguranca')
+canaltech.showRecentArticles(driver, category)
 
 id_article = input('\n-> Insira o ID da noticia: ')
-article = canaltech.getArticle(int(id_article), driver)
+article = canaltech.getArticle(int(id_article), driver, category)
 
 canva.open()
 canva.newTab()

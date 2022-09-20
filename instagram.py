@@ -1,5 +1,6 @@
 import scriptshelp
 import os
+import pyautogui
 from time import sleep
 ########################################################
 link = 'https://www.instagram.com/'
@@ -25,16 +26,15 @@ def auth(driver, email, password):
     sleep(5)
 
 def post(driver, author, link, content_1, content_2):
-    btn_new_post = driver.find_elements_by_tag_name('button')[2]
-    btn_new_post.click()
+    pyautogui.click(x=51, y=566)
     sleep(1)
-    input_path_image = driver.find_elements_by_tag_name('input')[1]
+    input_path_image = driver.find_elements_by_tag_name('input')[0]
     input_path_image.send_keys(os.getcwd()+'\\postIg.png')
     sleep(1)
-    btn_go = driver.find_elements_by_tag_name('button')[5]
+    btn_go = driver.find_elements_by_tag_name('button')[3]
     btn_go.click()
     sleep(1)
-    btn_go = driver.find_elements_by_tag_name('button')[5]
+    btn_go = driver.find_elements_by_tag_name('button')[3]
     btn_go.click()
     sleep(1)
     textarea = driver.find_elements_by_tag_name('textarea')[0]
@@ -47,6 +47,6 @@ def post(driver, author, link, content_1, content_2):
 | Autor: {author}
 | Continue lendo: {link} 
 #~~~~~~~~~~~~~~~~~~~""")
-    btn_share = driver.find_elements_by_tag_name('button')[5]
+    btn_share = driver.find_elements_by_tag_name('button')[3]
     btn_share.click()
     sleep(3)

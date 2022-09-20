@@ -17,7 +17,6 @@ class Article():
 
 def goTo(driver,category):
     driver.get(link_canaltech + category)
-    sleep(2)
     
 
 def getArticlesWebElements( driver, category):
@@ -27,8 +26,8 @@ def getArticlesWebElements( driver, category):
     return div_articles.find_elements_by_tag_name('article')
 
 
-def getArticle(id, driver):
-    article = getArticlesWebElements(driver)[id]
+def getArticle(id, driver, category):
+    article = getArticlesWebElements(driver,category)[id]
     link = article.find_element_by_tag_name('a').get_attribute('href')
     driver.get(link)
 
